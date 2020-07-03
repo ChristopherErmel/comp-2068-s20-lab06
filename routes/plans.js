@@ -6,7 +6,7 @@ function auth (req, res, next) {
     req.flash('danger', 'You need to login.');
     return res.redirect('/login');
   }
-}
+};
 
 // Step 2: Add the authentication function to all the routes below
 
