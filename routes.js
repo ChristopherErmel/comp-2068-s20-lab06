@@ -4,6 +4,6 @@ const router = require('express').Router();
 (require('./routes/pages'))(router);
 (require('./routes/plans'))(router);
 (require('./routes/users'))(router);
-(require('./routes/sessions'))(router);
+//(require('./routes/sessions'))(router);
 
 module.exports = router;

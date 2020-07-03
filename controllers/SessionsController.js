@@ -3,7 +3,23 @@ const passport = require('passport');
 const viewPath = 'sessions';
 
 // Step 1: Add the login logic
-
+exports.new = (req, res) => {
+    res.render(`${viewPath}/new`, {
+        pageTitle: 'Login'
+    });
+};
 // Step 2: Add the authentication logic
-
+exports.create = (req, res) => {
+    passport.authenticate('local', {
+        successRedirect: 'plans',
+        successFlash: 'You were successfully logged in!',
+        failureRedirect: '/login',
+        failureFlash: 'Invalid Credentials'
+    })(req, res);
+};
 // Step 3: Add the logout logic
+exports.delete = (req, res) => {
+    req.logout();
+    req.flash('success', 'You were successfully logged out!');
+    res.redirect('/');
+};
